@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Program JQuery Mobile Eryn</title>
+	<meta charset="utf-8">
+	<meta name="viewport"  content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href=jquery.mobile-1.4.5/jquery.mobile-1.4.5.css />
+	<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/D6E12F2D-1995-1C43-B6A9-493A81033A58/main.js" charset="UTF-8"></script><script src=jquery.mobile-1.4.5/demos/js/jquery.js></script>
+	<script src=jquery.mobile-1.4.5/jquery.mobile-1.4.5.js></script>
+
+	<script type = "text/javascript">
+
+	function cal_dec() {
+		var n = document.getElementById("dec").value;
+		if ((/[^0-9]/g.test(n)) || n == "") {
+			alert ("Are your sure? ");
+			document.getElementById("dec").value = "";
+			document.getElementById("dec").focus();
+			return false;
+		}
+		n = parseInt(n);
+		var bin = n.toString(2);
+		var hex = n.toString(16).toUpperCase();
+
+		var hasil = "To Binary : " + bin + "<br>";
+		hasil = hasil + "To Hexadecimal : " + hex + "<br>";
+
+		document.getElementById("result").innerHTML=hasil;
+	}
+
+	function rgb_show() {
+		var n = document.getElementById("rgb").value;
+		if (n == "") {
+			alert ("Please try again)");
+			document.getElementById("rgb").value = "";
+			document.getElementById("rgb").focus();
+			return false;
+		}
+
+		document.getElementById("myH1").style.color = n;
+	}
+
+	function gogo(){
+		var x = document.getElementById("mySelect").value;
+    	document.getElementById("demo").innerHTML = "<a href=" + x + "> go to " + x + "</a>";
+	}
+
+	function gogo1(){
+		var x = document.getElementById("mySelect1").value;
+    	document.getElementById("demo1").innerHTML = "<a href=" + x + "> go to " + x + "</a>";
+	}
+
+	function gogo2(){
+		var x = document.getElementById("mySelect2").value;
+    	document.getElementById("demo2").innerHTML = "<a href=" + x + "> go to " + x + "</a>";
+	}
+
+	$( document ).on( "click", ".show-page-loading-msg", function() {
+	    var $this = $( this ),
+	        theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+	        msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+	        textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+	        textonly = !!$this.jqmData( "textonly" );
+	        html = $this.jqmData( "html" ) || "";
+	    $.mobile.loading( "show", {
+	            text: msgText,
+	            textVisible: textVisible,
+	            theme: theme,
+	            textonly: textonly,
+	            html: html
+	    });
+	})
+	.on( "click", ".hide-page-loading-msg", function() {
+	    $.mobile.loading( "hide" );
+	});
+	</script>
+
+	<style type="text/css">
+		
+		/* Basic styles */
+		.rwd-example .ui-body {
+		    text-align: left;
+		    border-color: #ddd;
+		}
+		.rwd-example p {
+		    color: #777;
+		    line-height: 140%
+		}
+		/* Stack all blocks to start */
+		.rwd-example .ui-block-a,
+		.rwd-example .ui-block-b,
+		.rwd-example .ui-block-c {
+		    width: 100%;
+		    float: none;
+		}
+		/* Collapsing borders */
+		.rwd-example > div + div .ui-body {
+		    border-top-width: 0;
+		}
+		/* 1st breakpoint - Float B and C, leave A full width on top */
+		@media all and (min-width: 42em) {
+		    .rwd-example {
+		        overflow: hidden; /* Use this or a "clearfix" to give the container height */
+		    }
+		    .rwd-example .ui-body {
+		       min-height: 14em;
+		    }
+		    .rwd-example .ui-block-b,
+		    .rwd-example .ui-block-c {
+		      float: left;
+		      width: 49.95%;
+		    }
+		    .rwd-example .ui-block-b p,
+		    .rwd-example .ui-block-c p {
+		      font-size: .8em;
+		    }
+		    .rwd-example > div + div .ui-body {
+		        border-top-width: 1px;
+		    }
+		    .rwd-example > div:first-child .ui-body {
+		        border-bottom-width: 0;
+		    }
+		    .rwd-example > div:last-child .ui-body {
+		        border-left-width: 0;
+		    }
+		}
+		/* 2nd breakpoint - Float all, 50/25/25 */
+		@media all and (min-width: 55em) {
+		    .rwd-example .ui-body {
+		       min-height: 18em;
+		    }
+		    .rwd-example .ui-block-a,
+		    .rwd-example .ui-block-c {
+		      float: left;
+		      width: 49.95%;
+		    }
+		    .rwd-example .ui-block-b,
+		    .rwd-example .ui-block-c {
+		      float: left;
+		      width: 24.925%;
+		    }
+		    .rwd-example > div:first-child .ui-body {
+		        border-bottom-width: 1px;
+		    }
+		    .rwd-example > div + div .ui-body {
+		        border-left-width: 0;
+		    }
+		}
+		/* 3rd breakpoint - Bump up font size at very wide screens */
+		@media all and (min-width: 75em) {
+		    .rwd-example .ui-body {
+		      font-size: 125%;
+		    }
+		    .rwd-example .ui-block-a,
+		    .rwd-example .ui-block-c {
+		      float: left;
+		      width: 49.95%;
+		    }
+		    .rwd-example .ui-block-b,
+		    .rwd-example .ui-block-c {
+		      float: left;
+		      width: 24.925%;
+		    }
+		}
+
+	</style>
+</head>
+<body>
+		
+
+<div data-role="page" id="pone">
+	<div data-role="header">
+		<h1> I. Program Kalkulator </h1>
+	</div>
+	<div data-role="content">
+		<form>
+		<div class="ui-field-contain">
+		    <label for="select-native-1">Go to page:</label>
+		    <select id="mySelect" onchange="gogo()">
+		        <option value="#pone">One</option>
+		        <option value="#ptwo">Two</option>
+		        <option value="#pthree">Three</option>
+		    </select>
+		    
+		</div>
+		</form>
+		
+		<h3> Input decimal number : </h3>
+		<input type="text" name="dec" id="dec" />
+		<button class="ui-btn ui-corner-all" onclick="cal_dec()">Convert</button>
+		<br>
+		<div id="result"></div>
+		<br>
+		<p id="demo"></p>
+	</div>
+
+</div>
+
+<div data-role="page" id="ptwo">
+
+	<div data-role="header">
+		<h1> II. Program RGB </h1>
+	</div>
+	<div data-role=content>
+		<form>
+		<div class="ui-field-contain">
+		    <label for="select-native-1">Go to page:</label>
+		    <select id="mySelect1" onchange="gogo1()">
+		        <option value="#pone">One</option>
+		        <option value="#ptwo">Two</option>
+		        <option value="#pthree">Three</option>
+		    </select>
+		    
+		</div>
+		</form>
+
+		<h3> Input color RGB code : </h3>
+		<input type="text" name="rgb" id="rgb" />
+		<button class="ui-btn ui-corner-all" onclick="rgb_show()">Show</button>
+		<br>
+		<h1 id="myH1"> This is Your Color. Do you like it?</h1>
+		<br>
+		<p id="demo1"></p>
+	</div>
+</div>
+
+<div data-role="page" id="pthree">
+
+	<div data-role="header">
+		<h1> III. Rangkuman PPM </h1>
+	</div>
+	<div data-role="content">
+		<form>
+		<div class="ui-field-contain">
+		    <label for="select-native-1">Go to page:</label>
+		    <select id="mySelect2" onchange="gogo2()">
+		        <option value="#pone">One</option>
+		        <option value="#ptwo">Two</option>
+		        <option value="#pthree">Three</option>
+		    </select>
+		</div>
+		</form>	
+
+		<a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">see panel</a>
+		<button class="show-page-loading-msg" data-textonly="false" data-textvisible="false" data-msgtext="" data-inline="true">Load Me</button>
+		<div class="rwd-example">
+				    <div class="ui-block-a">
+				        <div class="ui-body ui-body-d">
+				            <h2>First meeting</h2>
+				            <p> 	Pertama, kita belajar cara menggunakan Git, melalui cmd dan bash. Git sendiri merupakan version control system yang digunakan para developer untuk mengembangkan software secara bersama-bersama. Fungsi utama git yaitu mengatur versi dari source code program anda dengan mengasih tanda baris dan code mana yang ditambah atau diganti. </p>
+				        </div>
+				    </div>
+				    <!-- secondary story block #1 -->
+				    <div class="ui-block-b">
+				        <div class="ui-body ui-body-d">
+				            <h4>Second Meeting</h4>
+				            <p> 	Kedua, kita belajar cara menggunakan jQuery Mobile.  Jquery adalah library atau kumpulan <--more--> kode javascript siap pakai. Keunggulan menggunakan jquery dibandingkan dengan javascript standar adalah, yaitu menyederhanakan kode javascript dengan cara memanggil fungsi-fungsi yang disediakan oleh jquery. </p>
+				        </div>
+				    </div>
+				    <!-- secondary story block #2 -->
+				    <div class="ui-block-c">
+				        <div class="ui-body ui-body-d">
+				            <h4>Third Meeting</h4>
+				            <p> 	Keitga, kita belajar menggunakan AngularJS. AgularJS berfungsi sebagai salah satu freamework yang paling populer dan banyak digunakan oleh developer untk mengembangkan aplikasi. </p>
+				        </div>
+				    </div>
+				</div>
+			
+				<form>
+	    		<label for="slider-1">Jumlah Mahasiswa yang mengambil MK PPM B:</label>
+	   			<input type="range" name="slider-1" id="slider-1" min="0" max="100" value="49">
+			</form>
+	<h4>List Materi yang sudah dipelajari</h4>
+	<ol data-role="listview">
+	    <li>Git</li>
+	    <li>jQuery Mobile</li>
+	    <li>AngularJS</li>
+	</ol>
+
+		<div data-role="panel" id="mypanel">
+		    <p> Keterangan : </p>
+		    <p> MATA KULIAH	:	Pemrograman Perangkat Mobile <br> DOSEN	:	Anita Nathania P., S. Kom,MMT<br>HARI / TGL	:	Senin  /  26 Maret 2018<br>WAKTU	:	150 menit <br>SIFAT	:	Terbuka </p>
+		</div><!-- /panel -->
+
+		
+	<br>
+	<p id="demo2"></p>
+	</div>
+</div>
+
+</body>
+</html>
